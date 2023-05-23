@@ -17,7 +17,8 @@ public class ProyectoSoftware {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+        pantallaInicioSesion a= new pantallaInicioSesion();
+        a.setVisible(true);
             
     }
     

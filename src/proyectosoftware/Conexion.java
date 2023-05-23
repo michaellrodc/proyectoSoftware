@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,6 +23,7 @@ public class Conexion {
            con = DriverManager.getConnection("jdbc:ucanaccess://"+filePath);
             if (con!=null){
                 System.out.println("Conexion establecida");
+                JOptionPane.showMessageDialog(null,"Conexion con la Base de Datos Establecida Adecuadamente");
             }
             else{
                 System.out.println("No hay una conexion establecida");
