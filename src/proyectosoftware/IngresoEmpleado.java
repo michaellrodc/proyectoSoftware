@@ -231,7 +231,8 @@ public class IngresoEmpleado extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         
-        
+        Empleado empleado = new Empleado(txtCedula.getText(),txtNombre.getText(),txtApellido.getText(), txtCategoria.getText(),txtContrato.getText(), Integer.parseInt( txtHoras.getText()),
+                Double.parseDouble( txtSalarioN.getText()),txtCodSal.getText());
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     /**
