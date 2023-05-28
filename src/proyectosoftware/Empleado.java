@@ -1,9 +1,15 @@
 package proyectosoftware;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -66,5 +72,34 @@ public class Empleado {
         }
     }
     //SOBRECARGA DE EMPLEADO POR CEDULA con funcion que devuelva empleado
+    /*
+    public ArrayList<String> listadoCI(){
+        ArrayList<String> Ci =null;
+        Conexion conexion = new Conexion();
+        Connection con = null;
+        Statement stmt = null;
+        ResultSet rs;
+        try {
+            // TODO add your handling code here:
+
+            con = conexion.conector();
+            String query =("SELECT emp_cedula FROM Empleado");
+           
+            stmt=con.createStatement();
+            rs=stmt.executeQuery(query);
+            while(rs.next())
+            {
+                String ci=rs.getString("emp_cedula");
+                Ci.add(ci);
+            }
+
+
+            
+            JOptionPane.showMessageDialog(null, "Usuario Ingresado Correctamente" );
+        } catch (IOException | SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());
+        }
+        return Ci;
+    }*/
     
 }

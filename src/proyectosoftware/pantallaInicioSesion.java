@@ -47,6 +47,12 @@ public class pantallaInicioSesion extends javax.swing.JFrame {
 
         jLabel3.setText("Contraseña");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 68, -1));
+
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 104, -1));
         getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 100, -1));
 
@@ -71,26 +77,10 @@ public class pantallaInicioSesion extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Loggin a = new Loggin("");
-        int validador =a.validarUsuario(txtUsuario.getText().trim(),txtContraseña.getText().trim());
-        if(validador==1)
-        {
-            //Pantalla de consultas
-            pantallaOpciones b = new pantallaOpciones();
-            b.setVisible(true);
-            this.dispose();
-            
-        }else if(validador==2)
-        {
-            pantallaOpciones b = new pantallaOpciones();
-            b.setVisible(true);
-            this.dispose();
-        }else{
-        JOptionPane.showMessageDialog(null, "Error en el inicio de sesion, revise el usuario u contraseña ");    
+        formularioInicioSesion ab = new formularioInicioSesion(txtUsuario.getText().trim(),txtContraseña.getText().trim());
+        ab.validarUsuario(this);
         txtUsuario.setText("");
         txtContraseña.setText("");
-        }
-        
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -102,6 +92,12 @@ public class pantallaInicioSesion extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
+        // TODO add your handling code here:
+        txtContraseña.setText("");
+        
+    }//GEN-LAST:event_txtUsuarioKeyTyped
 
     /**
      * @param args the command line arguments
