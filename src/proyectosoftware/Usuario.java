@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -35,23 +36,32 @@ public class Usuario {
         Conexion conexion = new Conexion();
         Connection con = null;
         PreparedStatement stmt = null;
+        Statement stmtS = null;
+        ResultSet rs;
 
         try {
             // TODO add your handling code here:
 
             con = conexion.conector();
-            String query =("INSERT INTO usuario (usuario, contraseña,emp_cedula) VALUES (?, ?, ?)");
             
-            stmt = con.prepareStatement(query);
-            stmt.setString(1, ususario);
-            stmt.setString(2, contraseña);
-            stmt.setString(3, Ci_Usuario);
-            
-
-               
-            stmt.executeUpdate();
-            
+            String query=("SELECT emp_cedula FROM USUARIO WHERE emp_cedula= '"+this.Ci_Usuario.trim()+"'");
+            stmtS=con.createStatement();
+            rs=stmtS.executeQuery(query);
+            if(rs.next())
+            {
+             JOptionPane.showMessageDialog(null, "La cédula selecionada ya cuenta con un Usuario y Contraseña" );   
+            }else
+            {
+             query =("INSERT INTO usuario (usuario, contraseña,emp_cedula) VALUES (?, ?, ?)");
+                stmt = con.prepareStatement(query);
+                stmt.setString(1, ususario);
+               stmt.setString(2, contraseña);
+               stmt.setString(3, Ci_Usuario);
+                stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Usuario Ingresado Correctamente" );
+            }
+                
+
         } catch (IOException | SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());
         }
