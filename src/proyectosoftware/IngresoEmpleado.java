@@ -207,21 +207,30 @@ public class IngresoEmpleado extends javax.swing.JFrame {
     }//GEN-LAST:event_txtContratoKeyPressed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        FormularioIngresoEmpleado empIngresado = new FormularioIngresoEmpleado(txtCedula.getText(),txtNombre.getText(),txtApellido.getText(),txtCategoria.getText(),txtContrato.getText(),Integer.getInteger(txtHoras.getText()),Double.parseDouble(txtSalarioN.getText()));
+        String cedula = txtCedula.getText();
+        String nombre = txtNombre.getText();
+        String apellido = txtApellido.getText();
+        String categoria = txtCategoria.getText();
+        String contrato = txtContrato.getText();
+        int horas = Integer.parseInt(txtHoras.getText());
+        double salario = Double.parseDouble(txtSalarioN.getText());
+        
+        FormularioIngresoEmpleado empIngresado = new FormularioIngresoEmpleado(cedula,nombre,apellido,categoria,contrato,horas,salario);
         
         
-        Empleado emp = new Empleado(empIngresado.getCedulaIngresada(),empIngresado.getNombreIngresado(),
-                empIngresado.getApellidoIngresado(),empIngresado.getCategoriaIngresada(),
+        Empleado emp = new Empleado(empIngresado.getCedulaIngresada(),empIngresado.getNombreIngresado(),empIngresado.getApellidoIngresado(),empIngresado.getCategoriaIngresada(),
                 empIngresado.getContratoIngresado(),empIngresado.getHorasEquivalentesIngresadas(),
                 empIngresado.getSalarioNetoIngresado());
         
         
-        emp.registroEmpleado();
+        boolean aux = emp.registroEmpleado();
+        System.out.println(aux);
         
         txtCedula.setText("");
         txtNombre.setText("");
         txtApellido.setText("");
         txtCategoria.setText("");
+        txtContrato.setText("");
         txtHoras.setText("");
         txtSalarioN.setText("");
     }//GEN-LAST:event_btnIngresarActionPerformed
