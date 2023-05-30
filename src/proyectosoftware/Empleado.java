@@ -35,8 +35,7 @@ public class Empleado {
         this.contrato = contrato;
         this.horasEquivalentes = horasEquivalentes;
         this.salarioNeto = salarioNeto;
-        this.codigoSalario = "SLR_"+cedula.substring(5)+"_"+nombre.substring(0,3)+"_"
-                              +categoria.substring(0,2)+"_"+contrato.substring(0,2);
+        this.codigoSalario = "SLR_"+cedula;
 
     }
     

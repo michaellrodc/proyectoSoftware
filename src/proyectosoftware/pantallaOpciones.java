@@ -75,6 +75,10 @@ public class pantallaOpciones extends javax.swing.JFrame {
 
     private void btnIngresoEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresoEmpleadosActionPerformed
         // TODO add your handling code here:
+        IngresoEmpleado a =new IngresoEmpleado();
+        a.setVisible(true);
+        a.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnIngresoEmpleadosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
