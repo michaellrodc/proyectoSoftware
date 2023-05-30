@@ -135,7 +135,12 @@ public class pantallaIngresoDescuento extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 430, 170));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1750235069" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1750235069", "1004457444" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 120, -1));
 
         jButton2.setText("Regresar");
@@ -187,7 +192,6 @@ public class pantallaIngresoDescuento extends javax.swing.JFrame {
             banderad=true;
             if(banderad&&banderac)
              {
-            JOptionPane.showMessageDialog(null, "e");
             formularioRegistroSalariosCod y = new formularioRegistroSalariosCod();
             String cbxOpcionCI = (String) jComboBox2.getSelectedItem();
            y.registrarCods(cbxOpcionCI,z.codDescuento ,z.codComision );
@@ -233,6 +237,10 @@ public class pantallaIngresoDescuento extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -20,9 +20,7 @@ public class formularioRegistroSalariosCod {
     public void registrarCods(String cbxCI,String codDesc,String codComision)
     {
         Salario x= new Salario();
-        JOptionPane.showMessageDialog(null, "1");
         x.ingresarCodigos(cbxCI, codDesc, codComision);
-        JOptionPane.showMessageDialog(null, "2");
     }
     
 }

@@ -15,9 +15,12 @@ public class Descuento {
     private String codigoDescuento;
 
     public Descuento(double aporteIESS, double aporteSRI) {
-        this.aportacionesIESS = (float) aportacionesIESS;
-        this.aportacionesSRI =  (float) aportacionesSRI;
+        this.aportacionesIESS = (float)aporteIESS;
+        this.aportacionesSRI =  (float) aporteSRI;
+        
         this.codigoDescuento=null;
+        //System.out.println(aportacionesIESS);
+        //System.out.println(aportacionesSRI);
     }
     
     public float calcularDescuento(String codigo) throws SQLException {
@@ -40,7 +43,8 @@ public class Descuento {
         if (result.next()) {
             float aportacionesIESS = result.getFloat("desc_aporteIESS");
             float aportacionesSRI = result.getFloat("desc_aporteSRI");
-            
+            System.out.println(aportacionesIESS);
+            System.out.println(aportacionesSRI);
 
             descuentoTotal = (float) ((500 * aportacionesIESS) + (500 * aportacionesSRI));
         }
@@ -78,6 +82,8 @@ public class Descuento {
             
             stmt = con.prepareStatement(query);
             stmt.setString(1, codigoSecuencial);
+            //System.out.println(aportacionesIESS);
+            //System.out.println(aportacionesSRI);
             stmt.setFloat(2, aportacionesIESS);
             stmt.setFloat(3, aportacionesSRI);
             

@@ -23,12 +23,14 @@ public class formularioRegistroDescuento {
 
     public void registroDescuento(javax.swing.JPanel d, javax.swing.JPanel c, float SRI, float Iees)
     {
-
+            
              d.setVisible(true);
              c.setVisible(false);           
              Descuento x= new Descuento(SRI,Iees);
              x.registrarDescuento();
              codDescuento=x.getcodDescuento();
+             
+             
 
     }
     public void registroComision(javax.swing.JPanel d, javax.swing.JPanel c, int horasAntes, int horasDespues, float comisiones)

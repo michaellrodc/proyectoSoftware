@@ -26,9 +26,10 @@ public class Salario {
         Comision a= new Comision();
         Descuento b = new Descuento(0.0945,0.04);
         float salarioFinal= 500+a.calcularComision(codigo1) - b.calcularDescuento(codigo2);
-        System.out.println(a.calcularComision(codigo1));
+        
+        /*System.out.println(a.calcularComision(codigo1));
         System.out.println(b.calcularDescuento(codigo2));
-        System.out.println(salarioFinal);
+        System.out.println(salarioFinal);*/
         return salarioFinal;
         
         
@@ -47,10 +48,8 @@ public class Salario {
            
             stmt=con.createStatement();
             rs=stmt.executeQuery(query);
-            JOptionPane.showMessageDialog(null, "a");
             if(rs.next())
             {
-                JOptionPane.showMessageDialog(null, "b");
                 String ab=rs.getString("slr_codigo");
                 PreparedStatement stmtP = null;
                  query =("INSERT INTO Salario (slr_codigo, desc_codigo,com_codigo) VALUES (?, ?, ?)");

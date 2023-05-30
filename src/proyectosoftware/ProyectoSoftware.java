@@ -22,8 +22,8 @@ public class ProyectoSoftware {
         pantallaInicioSesion a= new pantallaInicioSesion();
         a.setVisible(true);
         
-        //Salario b= new Salario();
-        //b.calcularSalario("CMS_01_001","DSC_01_001");
+        Salario b= new Salario();
+        b.calcularSalario("COM-000-001","DESC-001-001");
   
     }
     
