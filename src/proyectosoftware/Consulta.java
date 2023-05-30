@@ -39,13 +39,16 @@ public class Consulta {
         // Utilizar el modelo existente
         while (result.next()) {
 
-            Object[] fila = new Object[6];
+            Object[] fila = new Object[7];
             fila[0] = result.getString("emp_cedula");
             fila[1] = result.getString("emp_nombre");
             fila[2] = result.getString("emp_apellido");
             fila[3] = result.getString("emp_categoria");
             fila[4] = result.getString("emp_contrato");
             fila[5] = result.getString("emp_salarioNeto");
+             Salario b= new Salario();
+       
+            fila[6] =  b.calcularSalario("COM-000-001","DESC-001-001");
             model.addRow(fila);
         }
     } catch (IOException | SQLException ex) {

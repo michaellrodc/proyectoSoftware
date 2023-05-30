@@ -66,6 +66,11 @@ public class pantallaOpciones extends javax.swing.JFrame {
 
     private void btnConsultaSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaSalarioActionPerformed
         // TODO add your handling code here:
+        
+        pantallaConsultar a = new pantallaConsultar();
+        a.setVisible(true);
+        a.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnConsultaSalarioActionPerformed
 
     private void btnIngresoEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresoEmpleadosActionPerformed
