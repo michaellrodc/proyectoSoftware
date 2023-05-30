@@ -4,10 +4,6 @@
  */
 package proyectosoftware;
 
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author micha
@@ -42,14 +38,17 @@ public class pantallaConsultar extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Cedula", "Nombre", "Apellido", "Categoria", "Contrato", "Salario Neto"
+                "Cedula", "Nombre", "Apellido", "Categoria", "Contrato", "Salario Neto", "Salario Final"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -82,8 +81,9 @@ public class pantallaConsultar extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(180, 180, 180)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
@@ -106,12 +106,6 @@ public class pantallaConsultar extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Consulta a=new Consulta(jTable1);
-        try {
-            a.mostrarTabla("1789098240");
-        } catch (SQLException ex) {
-            Logger.getLogger(pantallaConsultar.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
