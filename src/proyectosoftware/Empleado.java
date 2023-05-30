@@ -1,15 +1,6 @@
 package proyectosoftware;
 
-import java.io.IOException;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  *
@@ -17,9 +8,8 @@ import java.sql.Statement;
  */
 public class Empleado {
     Conexion conexion = new Conexion();
-        java.sql.Connection con = null;
-        PreparedStatement stmt = null;
-        ResultSet result = null;
+    java.sql.Connection con = null;
+    PreparedStatement stmt = null;
     
     private String cedula;
     private String nombre;
@@ -34,7 +24,7 @@ public class Empleado {
         return salarioNeto;
     }
 
-    public Empleado(String cedula, String nombre, String apellido, String categoria, String contrato, int horasEquivalentes, double salarioNeto, String codigoSalario) {
+    public Empleado(String cedula, String nombre, String apellido, String categoria, String contrato, int horasEquivalentes, double salarioNeto) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -42,16 +32,17 @@ public class Empleado {
         this.contrato = contrato;
         this.horasEquivalentes = horasEquivalentes;
         this.salarioNeto = salarioNeto;
-        this.codigoSalario = codigoSalario;
-        
-        
-        
-        //SEPARAR EN FUNCION
+        this.codigoSalario = "SLR_"+cedula.substring(5)+"_"+nombre.substring(0,3)+"_"
+                              +categoria.substring(0,2)+"_"+contrato.substring(0,2);
+
+    }
+    
+    public boolean registroEmpleado(){
         try {
             con = conexion.conector();
             String cadena = "INSERT INTO empleado (emp_cedula, emp_nombre, emp_apellido, emp_categoria, emp_contrato, emp_horasEquivalentes, emp_salarioNeto, emp_sal_codigo) "
                     + "VALUES (?,?,?,?,?,?,?,?)";
-            PreparedStatement stmt = con.prepareStatement(cadena);
+            stmt = con.prepareStatement(cadena);
 
             stmt.setString(1, this.cedula);
             stmt.setString(2, this.nombre);
@@ -65,41 +56,10 @@ public class Empleado {
             stmt.executeUpdate();
             stmt.close();
             con.close();
-        } catch (IOException ex) {
-            //Logger.getLogger(pantallaInsertar.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            //Logger.getLogger(pantallaInsertar.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    //SOBRECARGA DE EMPLEADO POR CEDULA con funcion que devuelva empleado
-    /*
-    public ArrayList<String> listadoCI(){
-        ArrayList<String> Ci =null;
-        Conexion conexion = new Conexion();
-        Connection con = null;
-        Statement stmt = null;
-        ResultSet rs;
-        try {
-            // TODO add your handling code here:
-
-            con = conexion.conector();
-            String query =("SELECT emp_cedula FROM Empleado");
-           
-            stmt=con.createStatement();
-            rs=stmt.executeQuery(query);
-            while(rs.next())
-            {
-                String ci=rs.getString("emp_cedula");
-                Ci.add(ci);
-            }
-
-
             
-            JOptionPane.showMessageDialog(null, "Usuario Ingresado Correctamente" );
-        } catch (IOException | SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());
-        }
-        return Ci;
-    }*/
-    
+            return true;
+        } catch (Exception ex) {
+            return false;
+        } 
+    }
 }
