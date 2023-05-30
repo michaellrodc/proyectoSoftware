@@ -1,6 +1,9 @@
 package proyectosoftware;
 
+import java.io.IOException;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -40,8 +43,7 @@ public class Empleado {
     public boolean registroEmpleado(){
         try {
             con = conexion.conector();
-            String cadena = "INSERT INTO empleado (emp_cedula, emp_nombre, emp_apellido, emp_categoria, emp_contrato, emp_horasEquivalentes, emp_salarioNeto, emp_sal_codigo) "
-                    + "VALUES (?,?,?,?,?,?,?,?)";
+            String cadena = "INSERT INTO Empleado (emp_cedula,emp_nombre,emp_apellido,emp_categoria,emp_contrato,emp_horasEquivalentes,emp_salarioNeto,slr_codigo) VALUES (?,?,?,?,?,?,?,?)";
             stmt = con.prepareStatement(cadena);
 
             stmt.setString(1, this.cedula);
@@ -58,8 +60,9 @@ public class Empleado {
             con.close();
             
             return true;
-        } catch (Exception ex) {
+        } catch (IOException | SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());
             return false;
-        } 
+        }
     }
 }
