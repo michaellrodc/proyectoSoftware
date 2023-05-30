@@ -51,35 +51,21 @@
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="txtCedula" max="32767" attributes="0"/>
-                              <Component id="txtNombre" max="32767" attributes="0"/>
                               <Component id="txtCategoria" max="32767" attributes="0"/>
                               <Component id="txtApellido" alignment="0" pref="100" max="32767" attributes="0"/>
+                              <Component id="txtNombre" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="txtHoras" min="-2" pref="100" max="-2" attributes="0"/>
-                                              <Component id="txtContrato" min="-2" pref="100" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Component id="txtSalarioN" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtCodSal" min="-2" pref="100" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtContrato" pref="100" max="32767" attributes="0"/>
+                              <Component id="txtHoras" max="32767" attributes="0"/>
+                              <Component id="txtSalarioN" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -138,14 +124,9 @@
                               <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtSalarioN" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCodSal" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Component id="btnIngresar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="21" max="32767" attributes="0"/>
               </Group>
@@ -184,11 +165,6 @@
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCedulaKeyPressed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="txtNombre">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JTextField" name="txtCategoria">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
@@ -206,22 +182,11 @@
             <Property name="text" type="java.lang.String" value="Horas"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Codigo de Salario"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JTextField" name="txtContrato">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtContratoActionPerformed"/>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtContratoKeyPressed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JPasswordField" name="txtHoras">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtCodSal">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtSalarioN">
         </Component>
         <Component class="javax.swing.JTextField" name="txtApellido">
         </Component>
@@ -232,6 +197,15 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIngresarActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtNombre">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtHoras">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtHorasActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtSalarioN">
         </Component>
       </SubComponents>
     </Container>

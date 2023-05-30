@@ -8,6 +8,8 @@ package proyectosoftware;
  *
  * @author mao_a
  */
+
+
 public class IngresoEmpleado extends javax.swing.JFrame {
 
     /**
@@ -33,18 +35,16 @@ public class IngresoEmpleado extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtCedula = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JPasswordField();
         txtCategoria = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         txtContrato = new javax.swing.JTextField();
-        txtHoras = new javax.swing.JPasswordField();
-        txtCodSal = new javax.swing.JTextField();
-        txtSalarioN = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
         btnIngresar = new javax.swing.JButton();
+        txtNombre = new javax.swing.JTextField();
+        txtHoras = new javax.swing.JTextField();
+        txtSalarioN = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,19 +69,11 @@ public class IngresoEmpleado extends javax.swing.JFrame {
             }
         });
 
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
-            }
-        });
-
         jLabel6.setText("Contrato");
 
         jLabel7.setText("Salario Neto");
 
         jLabel8.setText("Horas");
-
-        jLabel9.setText("Codigo de Salario");
 
         txtContrato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +93,12 @@ public class IngresoEmpleado extends javax.swing.JFrame {
             }
         });
 
+        txtHoras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHorasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -117,28 +115,19 @@ public class IngresoEmpleado extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtCedula)
-                            .addComponent(txtNombre)
                             .addComponent(txtCategoria)
-                            .addComponent(txtApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                            .addComponent(txtApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(txtNombre))
                         .addGap(85, 85, 85)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel6))
-                                .addGap(6, 6, 6)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(36, 36, 36)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtContrato, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(txtSalarioN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtCodSal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel6))
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtContrato, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(txtHoras)
+                            .addComponent(txtSalarioN)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(240, 240, 240)
                         .addComponent(btnIngresar))
@@ -181,12 +170,8 @@ public class IngresoEmpleado extends javax.swing.JFrame {
                         .addGap(8, 8, 8)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(txtSalarioN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(txtCodSal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(28, 28, 28)
+                            .addComponent(txtSalarioN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(29, 29, 29)
                 .addComponent(btnIngresar)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
@@ -207,32 +192,43 @@ public class IngresoEmpleado extends javax.swing.JFrame {
 
     private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
         // TODO add your handling code here:
-        txtNombre.setText("");
     }//GEN-LAST:event_txtCedulaActionPerformed
 
     private void txtCedulaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyPressed
         // TODO add your handling code here:
-        txtNombre.setText("");
     }//GEN-LAST:event_txtCedulaKeyPressed
 
     private void txtContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContratoActionPerformed
         // TODO add your handling code here:
-        txtNombre.setText("");
     }//GEN-LAST:event_txtContratoActionPerformed
 
     private void txtContratoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContratoKeyPressed
         // TODO add your handling code here:
-        txtNombre.setText("");
     }//GEN-LAST:event_txtContratoKeyPressed
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
-
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        FormularioIngresoEmpleado empIngresado = new FormularioIngresoEmpleado(txtCedula.getText(),txtNombre.getText(),txtApellido.getText(),txtCategoria.getText(),txtContrato.getText(),Integer.getInteger(txtHoras.getText()),Double.parseDouble(txtSalarioN.getText()));
         
         
+        Empleado emp = new Empleado(empIngresado.getCedulaIngresada(),empIngresado.getNombreIngresado(),
+                empIngresado.getApellidoIngresado(),empIngresado.getCategoriaIngresada(),
+                empIngresado.getContratoIngresado(),empIngresado.getHorasEquivalentesIngresadas(),
+                empIngresado.getSalarioNetoIngresado());
+        
+        
+        emp.registroEmpleado();
+        
+        txtCedula.setText("");
+        txtNombre.setText("");
+        txtApellido.setText("");
+        txtCategoria.setText("");
+        txtHoras.setText("");
+        txtSalarioN.setText("");
     }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void txtHorasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHorasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHorasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,15 +275,13 @@ public class IngresoEmpleado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCategoria;
     private javax.swing.JTextField txtCedula;
-    private javax.swing.JTextField txtCodSal;
     private javax.swing.JTextField txtContrato;
-    private javax.swing.JPasswordField txtHoras;
-    private javax.swing.JPasswordField txtNombre;
+    private javax.swing.JTextField txtHoras;
+    private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtSalarioN;
     // End of variables declaration//GEN-END:variables
 }
