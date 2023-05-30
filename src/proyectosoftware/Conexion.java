@@ -23,7 +23,7 @@ public class Conexion {
            con = DriverManager.getConnection("jdbc:ucanaccess://"+filePath);
             if (con!=null){
                 System.out.println("Conexion establecida");
-                JOptionPane.showMessageDialog(null,"Conexion con la Base de Datos Establecida Adecuadamente");
+                //JOptionPane.showMessageDialog(null,"Conexion con la Base de Datos Establecida Adecuadamente");
             }
             else{
                 System.out.println("No hay una conexion establecida");

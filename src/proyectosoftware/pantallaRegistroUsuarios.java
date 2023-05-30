@@ -30,15 +30,18 @@ public class pantallaRegistroUsuarios extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         txtContraseña = new javax.swing.JPasswordField();
         cbxCI = new javax.swing.JComboBox<>();
-        txtLgnCodigo = new javax.swing.JTextField();
         btnRegistrar = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Ingreso de Usuarios");
@@ -52,9 +55,6 @@ public class pantallaRegistroUsuarios extends javax.swing.JFrame {
 
         jLabel4.setText("Contraseña");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
-
-        jLabel5.setText("Codigo de Login");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,9 +71,7 @@ public class pantallaRegistroUsuarios extends javax.swing.JFrame {
         txtContraseña.setText("jPasswordField1");
         getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 100, -1));
 
-        cbxCI.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1750235069", "1711913879" }));
         getContentPane().add(cbxCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 100, -1));
-        getContentPane().add(txtLgnCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 100, -1));
 
         btnRegistrar.setText("Registrar");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -99,13 +97,13 @@ public class pantallaRegistroUsuarios extends javax.swing.JFrame {
         String Usuario=txtUsuario.getText().trim();
         String password = new String(txtContraseña.getPassword());
         String cbxOpcion =(String)cbxCI.getSelectedItem();
-        String codigoLogin=txtLgnCodigo.getText().trim();
+
         
-        Usuario b = new Usuario(Usuario,password,cbxOpcion,codigoLogin);
-        b.ingresarUsuario();
+        formularioRegistroEmpleados b = new formularioRegistroEmpleados(Usuario,password,cbxOpcion);
+        b.registrarUsuario();
         txtUsuario.setText("");
         txtContraseña.setText("");
-        txtLgnCodigo.setText("");
+
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
@@ -125,6 +123,12 @@ public class pantallaRegistroUsuarios extends javax.swing.JFrame {
         // TODO add your handling code here:
         txtContraseña.setText("");
     }//GEN-LAST:event_txtUsuarioKeyPressed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        llenadoCbx s = new llenadoCbx();
+        s.llenado(cbxCI);
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -169,9 +173,7 @@ public class pantallaRegistroUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPasswordField txtContraseña;
-    private javax.swing.JTextField txtLgnCodigo;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

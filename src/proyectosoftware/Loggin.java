@@ -17,11 +17,7 @@ import static proyectosoftware.Conexion.con;
  * @author danny
  */
 public class Loggin {
-    private String lgn_cod;
-    public Loggin(String Lgn_codigo)
-    {
-        this.lgn_cod=Lgn_codigo;
-    }
+
     
     public int validarUsuario(String Usuario,String Contraseña)
     {
@@ -42,7 +38,7 @@ public class Loggin {
             // TODO add your handling code here:
 
             con = conexion.conector();
-            String query = "SELECT u.usuario, u.contraseña FROM Login l, Usuario u WHERE u.Lgn_Codigo = l.lgn_cod AND u.usuario = ? AND u.contraseña = ?";
+            String query = "SELECT u.usuario, u.contraseña FROM  Usuario u WHERE u.usuario = ? AND u.contraseña = ?";
             stmt = con.prepareStatement(query);
             stmt.setString(1, usuarioIngresado);
             stmt.setString(2, contraseñaIngresada);

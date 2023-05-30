@@ -22,14 +22,13 @@ public class Usuario {
     String ususario;
     String Ci_Usuario;
     String contraseña;
-    String Lgn_Codigo;
     
-    public Usuario(String Usuario,String Contraseña,String CI, String LGN_codigo)
+    public Usuario(String Usuario,String Contraseña,String CI)
     {
         this.ususario=Usuario;
         this.contraseña=Contraseña;
         this.Ci_Usuario=CI;
-        this.Lgn_Codigo=LGN_codigo;
+
     }
     public void ingresarUsuario()
     {
@@ -41,18 +40,16 @@ public class Usuario {
             // TODO add your handling code here:
 
             con = conexion.conector();
-            String query =("INSERT INTO usuario (usuario, Ci_Usuario, contraseña, Lgn_Codigo) VALUES (?, ?, ?, ?)");
+            String query =("INSERT INTO usuario (usuario, contraseña,emp_cedula) VALUES (?, ?, ?)");
             
             stmt = con.prepareStatement(query);
             stmt.setString(1, ususario);
-            stmt.setString(2, Ci_Usuario);
-            stmt.setString(3, contraseña);
-            stmt.setString(4, Lgn_Codigo);
+            stmt.setString(2, contraseña);
+            stmt.setString(3, Ci_Usuario);
+            
+
                
             stmt.executeUpdate();
-            query=("INSERT INTO Loggin (lgn_Cod) VALUES ?");
-            stmt = con.prepareStatement(query);
-            stmt.setString(1, Lgn_Codigo);
             
             JOptionPane.showMessageDialog(null, "Usuario Ingresado Correctamente" );
         } catch (IOException | SQLException ex) {
