@@ -12,10 +12,12 @@ import javax.swing.JOptionPane;
 public class Descuento {
     private float aportacionesIESS;
     private float aportacionesSRI;
+    private String codigoDescuento;
 
     public Descuento(double aporteIESS, double aporteSRI) {
         this.aportacionesIESS = (float) aportacionesIESS;
         this.aportacionesSRI =  (float) aportacionesSRI;
+        this.codigoDescuento=null;
     }
     
     public float calcularDescuento(String codigo) throws SQLException {
@@ -56,5 +58,42 @@ public class Descuento {
         }
     }
     return descuentoTotal;
-}
+    }
+    public void registrarDescuento()
+    {
+        Conexion conexion = new Conexion();
+        Connection con = null;
+        PreparedStatement stmt = null;
+        String codigoSecuencial;
+        
+        generrarCodigos a= new generrarCodigos();
+        codigoSecuencial=a.codigoDescuento();
+        codigoDescuento=codigoSecuencial;
+
+        try {
+            // TODO add your handling code here:
+
+            con = conexion.conector();
+            String query =("INSERT INTO Descuento (desc_codigo, desc_aporteIESS,desc_aporteSRI) VALUES (?, ?, ?)");
+            
+            stmt = con.prepareStatement(query);
+            stmt.setString(1, codigoSecuencial);
+            stmt.setFloat(2, aportacionesIESS);
+            stmt.setFloat(3, aportacionesSRI);
+            
+
+               
+            stmt.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "descuento Ingresado Correctamente" );
+        } catch (IOException | SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());
+        }
+    }
+    public String getcodDescuento()
+    {
+        String resultado =this.codigoDescuento;
+        
+        return resultado;
+    }
 }

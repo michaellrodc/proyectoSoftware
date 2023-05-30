@@ -29,6 +29,7 @@ public class pantallaOpciones extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnIngresoEmpleados = new javax.swing.JButton();
         btnConsultaSalario = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -37,6 +38,11 @@ public class pantallaOpciones extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
 
         btnIngresoEmpleados.setText("Ingresar Empleado");
+        btnIngresoEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresoEmpleadosActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnIngresoEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 150, 80));
 
         btnConsultaSalario.setText("Consultar Salario");
@@ -47,12 +53,31 @@ public class pantallaOpciones extends javax.swing.JFrame {
         });
         getContentPane().add(btnConsultaSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 170, 80));
 
+        jButton1.setText("Ingresar Descuento Y Comisión");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 200, 70));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConsultaSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaSalarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnConsultaSalarioActionPerformed
+
+    private void btnIngresoEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresoEmpleadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIngresoEmpleadosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        pantallaIngresoDescuento a = new pantallaIngresoDescuento();
+        a.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -92,6 +117,7 @@ public class pantallaOpciones extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultaSalario;
     private javax.swing.JButton btnIngresoEmpleados;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
