@@ -65,35 +65,46 @@ public class Comision {
     return comisionTotal;
     }
     
-    public void IngresarComision( )
+    public void IngresarComision( String ciCod )
     {
             Conexion conexion = new Conexion();
             Connection con = null;
             PreparedStatement stmt = null;
-            String codigoSecuencial;
+            ciCod="COM-"+ciCod;
 
-            generrarCodigos a= new generrarCodigos();
-            codigoSecuencial=a.codigoComisiones();
-            codigoComision=codigoSecuencial;
+            codigoComision=ciCod;
+            validarCodigos ab = new validarCodigos();
 
             try {
-                // TODO add your handling code here:
-
                 con = conexion.conector();
-                String query =("INSERT INTO Comision (com_codigo, com_horasExtraAntes,com_horasExtraDespues,com_valorComision) VALUES (?, ?, ?, ?)");
+                if(!ab.validarComisiones(ciCod))
+                {
+                    String query =("INSERT INTO Comision (com_codigo, com_horasExtraAntes,com_horasExtraDespues,com_valorComision) VALUES (?, ?, ?, ?)");
 
-                stmt = con.prepareStatement(query);
+                    stmt = con.prepareStatement(query);
+                    stmt.setString(1, ciCod);
+                    stmt.setInt(2, horasExtraAntes);
+                    stmt.setInt(3, horasExtraDespues);
+                    stmt.setFloat(4, valorComision); 
+                    stmt.executeUpdate();
 
-                stmt.setString(1, codigoSecuencial);
+                    JOptionPane.showMessageDialog(null, "Comision Ingresado Correctamente" );
+                }
+                else
+                {
+                    String query =("UPDATE Comision SET com_horasExtraAntes = ?, com_horasExtraDespues = ?, com_valorComision=?  WHERE com_codigo='"+ciCod+"';");
+            
+                    stmt = con.prepareStatement(query);
+                    
+                    stmt.setInt(1, horasExtraAntes);
+                    stmt.setInt(2, horasExtraDespues);
+                    stmt.setFloat(3, valorComision); 
 
-                stmt.setInt(2, horasExtraAntes);
-
-                stmt.setInt(3, horasExtraDespues);
-
-                stmt.setFloat(4, valorComision); 
-                stmt.executeUpdate();
+                    stmt.executeUpdate();
+                    JOptionPane.showMessageDialog(null, "comision Actualizado Correctamente" );
+                }
                 
-                JOptionPane.showMessageDialog(null, "Comision Ingresado Correctamente" );
+                
             } catch (IOException | SQLException ex) {
                 JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());
             }

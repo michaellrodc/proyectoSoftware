@@ -30,7 +30,7 @@ public class formularioInicioSesion {
         if(validador==1)
         {
             //Pantalla de consultas
-            pantallaOpciones b = new pantallaOpciones();
+            pantallaConsultar b = new pantallaConsultar();
             b.setVisible(true);
             x.dispose();
             

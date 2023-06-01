@@ -21,27 +21,27 @@ public class formularioRegistroDescuento {
         codComision=null;
     }
 
-    public void registroDescuento(javax.swing.JPanel d, javax.swing.JPanel c, float SRI, float Iees)
-    {
-            
-             d.setVisible(true);
-             c.setVisible(false);           
-             Descuento x= new Descuento(SRI,Iees);
-             x.registrarDescuento();
-             codDescuento=x.getcodDescuento();
+    public void registroDescuento( float SRI, float Iees)
+    {     
+        Descuento x= new Descuento(SRI,Iees);
+        x.registrarDescuento(cbxOpcion);
+        codDescuento=x.getcodDescuento();
              
              
 
     }
-    public void registroComision(javax.swing.JPanel d, javax.swing.JPanel c, int horasAntes, int horasDespues, float comisiones)
+    public void registroComision( int horasAntes, int horasDespues, float comisiones)
     {
-        d.setVisible(false);
-        c.setVisible(true);
         Comision x = new Comision(horasAntes,horasDespues,comisiones);       
-        x.IngresarComision();
+        x.IngresarComision(cbxOpcion);
         codComision=x.getcodcomision();
              
 
+    }
+    public void registroSalario ()
+    {
+        Salario a = new Salario ();
+        a.ingresarCodigos(cbxOpcion);
     }
     
 }

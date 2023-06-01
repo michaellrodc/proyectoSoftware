@@ -31,14 +31,10 @@ public class pantallaIngresoDescuento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel7 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        panelDescuentos = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         panelComisiones = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -48,8 +44,14 @@ public class pantallaIngresoDescuento extends javax.swing.JFrame {
         sliderMinimo = new javax.swing.JSlider();
         sliderMinimo1 = new javax.swing.JSlider();
         labelValorSliderm1 = new javax.swing.JLabel();
+        panelDescuentos = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -59,46 +61,47 @@ public class pantallaIngresoDescuento extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel7.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        jLabel7.setText("Selecione una opción ");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, 30));
+
+        jComboBox1.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Descuentos", "Comisiones" }));
+        jComboBox1.setToolTipText("Selecione la oçión que desea realizar  ingreso de descuento,comsión");
+        jComboBox1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 16, -1, -1));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 120, 40));
 
+        jButton1.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         jButton1.setText("Ingresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 80, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 90, 40));
 
+        jPanel2.setBackground(new java.awt.Color(23, 169, 156));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelDescuentos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setText("Apotaciones al IEES");
-        panelDescuentos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
-        panelDescuentos.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 80, -1));
-        panelDescuentos.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 90, -1));
-
-        jLabel2.setText("Aportaciones SRI");
-        panelDescuentos.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
-
-        jPanel2.add(panelDescuentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 410, 140));
-
+        panelComisiones.setBackground(new java.awt.Color(23, 169, 156));
         panelComisiones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel3.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
         jLabel3.setText("Horas Extras antes de las 24 horas");
-        panelComisiones.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        panelComisiones.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
-        jLabel4.setText("Horas Extras después de las 24 horas");
-        panelComisiones.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        jLabel4.setText("Horas Extras después de las 24 ");
+        panelComisiones.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
         jLabel5.setText("Valor de Comisión");
-        panelComisiones.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+        panelComisiones.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
         panelComisiones.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 90, -1));
 
         labelValorSliderm.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -107,8 +110,9 @@ public class pantallaIngresoDescuento extends javax.swing.JFrame {
 
         sliderMinimo.setMaximum(48);
         sliderMinimo.setPaintTicks(true);
-        sliderMinimo.setToolTipText("Selecione el valor mínimo de el cílindraje del vehículo");
+        sliderMinimo.setToolTipText("Selecione las horas extras máximas antes de las 24 horas");
         sliderMinimo.setValue(0);
+        sliderMinimo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sliderMinimo.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 sliderMinimoStateChanged(evt);
@@ -118,38 +122,58 @@ public class pantallaIngresoDescuento extends javax.swing.JFrame {
 
         sliderMinimo1.setMaximum(48);
         sliderMinimo1.setPaintTicks(true);
-        sliderMinimo1.setToolTipText("Selecione el valor mínimo de el cílindraje del vehículo");
+        sliderMinimo1.setToolTipText("Selecione las horas extras máximas después de las 24 horas");
         sliderMinimo1.setValue(0);
         sliderMinimo1.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 sliderMinimo1StateChanged(evt);
             }
         });
-        panelComisiones.add(sliderMinimo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 140, -1));
+        panelComisiones.add(sliderMinimo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 140, -1));
 
         labelValorSliderm1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         labelValorSliderm1.setText("0.0");
-        panelComisiones.add(labelValorSliderm1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, 20));
+        panelComisiones.add(labelValorSliderm1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, -1, 20));
 
         jPanel2.add(panelComisiones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 140));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 430, 170));
+        panelDescuentos.setBackground(new java.awt.Color(23, 169, 156));
+        panelDescuentos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1750235069", "1004457444" }));
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jLabel1.setText("Apotaciones al IEES");
+        panelDescuentos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+        panelDescuentos.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 90, -1));
+        panelDescuentos.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 90, -1));
+
+        jLabel2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jLabel2.setText("Aportaciones SRI");
+        panelDescuentos.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+
+        jPanel2.add(panelDescuentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 420, 140));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 430, -1));
+
+        jComboBox2.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
+        jComboBox2.setToolTipText("Selecione la cédula que desea ingresar u modificar los registros");
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 120, -1));
+        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 102, 130, 30));
 
+        jButton2.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         jButton2.setText("Regresar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 100, 40));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/descuento-salarios.jpg"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 510, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -165,38 +189,24 @@ public class pantallaIngresoDescuento extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String cbxOpcionDesc = (String) jComboBox1.getSelectedItem();
-        formularioRegistroDescuento z = new formularioRegistroDescuento(cbxOpcionDesc);
+        String ciIngresada = (String) jComboBox2.getSelectedItem();
+        String cbxOpcionDesc= (String) jComboBox1.getSelectedItem();
+        formularioRegistroDescuento z = new formularioRegistroDescuento(ciIngresada);
         
         if(cbxOpcionDesc.equals("Comisiones"))
        {
            int valorhorasantes = sliderMinimo.getValue();
-        int valorhorasDespues = sliderMinimo.getValue();
-        float valorcomision= Float.parseFloat(jTextField5.getText().trim());
-           z.registroComision(panelDescuentos, panelComisiones, valorhorasantes, valorhorasDespues, valorcomision);
-           banderac=true;
-           if(banderad&&banderac)
-             {
-            JOptionPane.showMessageDialog(null, "e");
-            formularioRegistroSalariosCod y = new formularioRegistroSalariosCod();
-            String cbxOpcionCI = (String) jComboBox2.getSelectedItem();
-           y.registrarCods(cbxOpcionCI,z.codDescuento ,z.codComision );
-           banderac=false;
-             }
+            int valorhorasDespues = sliderMinimo.getValue();
+             float valorcomision= Float.parseFloat(jTextField5.getText().trim());
+           z.registroComision( valorhorasantes, valorhorasDespues, valorcomision);
+           z.registroSalario();
        }
         else
         {
             float valorIESS=Float.parseFloat(jTextField1.getText().trim());
-        float valorSRI=Float.parseFloat(jTextField2.getText().trim());
-            z.registroDescuento(panelDescuentos, panelComisiones, valorIESS, valorSRI);
-            banderad=true;
-            if(banderad&&banderac)
-             {
-            formularioRegistroSalariosCod y = new formularioRegistroSalariosCod();
-            String cbxOpcionCI = (String) jComboBox2.getSelectedItem();
-           y.registrarCods(cbxOpcionCI,z.codDescuento ,z.codComision );
-           banderad=false;
-             }
+          float valorSRI=Float.parseFloat(jTextField2.getText().trim());
+            z.registroDescuento(valorIESS, valorSRI);
+            z.registroSalario();
         }
         
         
@@ -287,6 +297,8 @@ public class pantallaIngresoDescuento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;

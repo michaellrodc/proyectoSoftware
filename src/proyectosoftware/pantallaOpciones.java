@@ -30,36 +30,45 @@ public class pantallaOpciones extends javax.swing.JFrame {
         btnIngresoEmpleados = new javax.swing.JButton();
         btnConsultaSalario = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 13)); // NOI18N
         jLabel1.setText("¿Qué opción desea Realizar ?");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 27, -1, 20));
 
-        btnIngresoEmpleados.setText("Ingresar Empleado");
+        btnIngresoEmpleados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BTN INGRESO EMPLEADOS.jpg"))); // NOI18N
+        btnIngresoEmpleados.setToolTipText("Boton que permite registrar empleados");
+        btnIngresoEmpleados.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         btnIngresoEmpleados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIngresoEmpleadosActionPerformed(evt);
             }
         });
-        getContentPane().add(btnIngresoEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 150, 80));
+        getContentPane().add(btnIngresoEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 110, 90));
 
-        btnConsultaSalario.setText("Consultar Salario");
+        btnConsultaSalario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/btnBusqueda.jpg"))); // NOI18N
+        btnConsultaSalario.setToolTipText("boton que permite realizar consultas");
         btnConsultaSalario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsultaSalarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnConsultaSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 170, 80));
+        getContentPane().add(btnConsultaSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 110, 90));
 
-        jButton1.setText("Ingresar Descuento Y Comisión");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/btnIngreso descuentos.jpg"))); // NOI18N
+        jButton1.setToolTipText("Bton que permite registrar Salarios");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 200, 70));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 110, 90));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pantallaOpciones.jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -128,5 +137,6 @@ public class pantallaOpciones extends javax.swing.JFrame {
     private javax.swing.JButton btnIngresoEmpleados;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
