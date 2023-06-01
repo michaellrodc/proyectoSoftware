@@ -78,12 +78,13 @@ public class Empleado {
         try {
             con = conexion.conector();
             
-            String cadena = "SELECT * FROM Empleado WHERE Empleado.emp_cedula = ?";
+            String cadena = "SELECT * FROM Empleado WHERE emp_cedula = ?";
             stmt = con.prepareStatement(cadena);
             stmt.setString(1, cedula);
             result = stmt.executeQuery();
             
-            empleado = new Empleado(
+            if (result.next()) {
+                empleado = new Empleado(
                     result.getString("emp_cedula"),
                     result.getString("emp_nombre"),
                     result.getString("emp_apellido"),
@@ -91,7 +92,12 @@ public class Empleado {
                     result.getString("emp_contrato"),
                     result.getInt("emp_horasEquivalentes"),
                     result.getDouble("emp_salarioNeto")
-            );
+                );
+            } else {
+                System.out.println("No se encontro ningun empleado con la cedula "+ cedula);
+            }
+            
+            
             
             stmt.close();
             con.close();
