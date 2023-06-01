@@ -22,7 +22,7 @@ public class Conexion {
     public Connection conector() throws FileNotFoundException, IOException, SQLException {
            con = DriverManager.getConnection("jdbc:ucanaccess://"+filePath);
             if (con!=null){
-                System.out.println("Conexion establecida");
+                //System.out.println("Conexion establecida");
                 //JOptionPane.showMessageDialog(null,"Conexion con la Base de Datos Establecida Adecuadamente");
             }
             else{

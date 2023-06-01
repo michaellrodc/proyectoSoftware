@@ -87,7 +87,7 @@ public class Comision {
         int rowsAffected = stmt.executeUpdate();
 
         if (rowsAffected > 0) {
-            System.out.println("Comisión total actualizada correctamente.");
+            //System.out.println("Comisión total actualizada correctamente.");
         } else {
             System.out.println("No se pudo actualizar la comisión total.");
         }

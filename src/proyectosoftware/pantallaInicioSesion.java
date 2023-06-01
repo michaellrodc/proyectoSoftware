@@ -114,6 +114,7 @@ public class pantallaInicioSesion extends javax.swing.JFrame {
         // TODO add your handling code here:
         pantallaRegistroUsuarios b = new pantallaRegistroUsuarios();
         b.setVisible(true);
+        b.setLocationRelativeTo(null);
         
         this.dispose();
         

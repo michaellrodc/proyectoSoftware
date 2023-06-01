@@ -48,7 +48,7 @@ public class Salario {
         int rowsAffected = stmt.executeUpdate();
 
         if (rowsAffected > 0) {
-            System.out.println("Salario total actualizado correctamente.");
+           // System.out.println("Salario total actualizado correctamente.");
         } else {
             System.out.println("No se pudo actualizar el salario total.");
         }

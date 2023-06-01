@@ -85,7 +85,7 @@ public void actualizarDescuentoTotal(String codigo, float descuentoTotal) throws
         int rowsAffected = stmt.executeUpdate();
 
         if (rowsAffected > 0) {
-            System.out.println("Descuento total actualizado correctamente.");
+            //System.out.println("Descuento total actualizado correctamente.");
         } else {
             System.out.println("No se pudo actualizar el descuento total.");
         }
