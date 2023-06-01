@@ -34,7 +34,7 @@ public class Comision {
     float comisionTotal = 0;
     try {
         con = conexion.conector();
-        String query = "SELECT c.com_horasExtraAntes, c.com_horasExtraDespues, c.com_valorComision FROM comision c, salario s WHERE c.com_codigo = ? ";
+String query = "SELECT c.com_horasExtraAntes, c.com_horasExtraDespues, c.com_valorComision FROM comision c, salario s WHERE s.slr_codigo = ? AND s.com_codigo = c.com_codigo";
         stmt = con.prepareStatement(query);
 
         stmt.setString(1, codigo);
@@ -46,8 +46,9 @@ public class Comision {
             int horasExtraDespues = result.getInt("com_horasExtraDespues");
             float valorComision = result.getFloat("com_valorComision");
            
-
-            comisionTotal = (float) (((horasExtraAntes * 1.5) * 500 / 160) + ((horasExtraDespues * 2) * 500 / 160));
+            
+            codigo = codigo.substring(5);
+            comisionTotal = (float) (((horasExtraAntes * 1.5) * Empleado.getEmpleado(codigo).getSalarioNeto() / 160) + ((horasExtraDespues * 2) * Empleado.getEmpleado(codigo).getSalarioNeto() / 160));
         }
     } catch (IOException | SQLException ex) {
         JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());

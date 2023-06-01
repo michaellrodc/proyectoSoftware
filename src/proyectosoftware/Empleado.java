@@ -82,8 +82,10 @@ public class Empleado {
             stmt = con.prepareStatement(cadena);
             stmt.setString(1, cedula);
             result = stmt.executeQuery();
-            
+            System.out.println(cedula);
+            System.out.println(result.getString("emp_cedula"));
             empleado = new Empleado(
+                    
                     result.getString("emp_cedula"),
                     result.getString("emp_nombre"),
                     result.getString("emp_apellido"),
@@ -91,6 +93,7 @@ public class Empleado {
                     result.getString("emp_contrato"),
                     result.getInt("emp_horasEquivalentes"),
                     result.getDouble("emp_salarioNeto")
+                    
             );
             
             stmt.close();
@@ -101,6 +104,7 @@ public class Empleado {
         }
         
         return empleado;
+        
     }
     
 

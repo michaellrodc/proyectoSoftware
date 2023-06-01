@@ -23,7 +23,11 @@ public class ProyectoSoftware {
         a.setVisible(true);
         
         Salario b= new Salario();
-        b.calcularSalario("COM-000-001","DESC-001-001");
+        Comision c = new Comision();
+        //b.calcularSalario("COM-000-001","DESC-001-001");
+        //System.out.println(c.calcularComision("SLR-1716270849"));
+        System.out.println(Empleado.getEmpleado("1716270849").getSalarioNeto());
+        
   
     }
     

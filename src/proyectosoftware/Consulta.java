@@ -45,11 +45,11 @@ public class Consulta {
                 fila[4] = result.getString("emp_contrato");
                 fila[5] = result.getString("emp_salarioNeto");
                 Salario b = new Salario();
-                fila[6] = b.calcularSalario("COM-000-001", "DESC-001-001");
+                //fila[6] = b.calcularSalario("COM-000-001", "DESC-001-001");
                 model.addRow(fila);
             }
         } catch (IOException | SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());
+            //JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());
         } finally {
             if (result != null) {
                 result.close();
