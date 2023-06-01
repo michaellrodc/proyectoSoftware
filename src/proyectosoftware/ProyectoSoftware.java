@@ -21,9 +21,11 @@ public class ProyectoSoftware {
         // TODO code application logic here
         pantallaInicioSesion a= new pantallaInicioSesion();
         a.setVisible(true);
+        Descuento c = new Descuento(0,0);
+        Comision h = new Comision();
+        Salario s = new Salario();
         
-        Salario b= new Salario();
-        b.calcularSalario("COM-000-001","DESC-001-001");
+        
   
     }
     

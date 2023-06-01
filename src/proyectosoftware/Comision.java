@@ -34,7 +34,7 @@ public class Comision {
     float comisionTotal = 0;
     try {
         con = conexion.conector();
-        String query = "SELECT c.com_horasExtraAntes, c.com_horasExtraDespues, c.com_valorComision FROM comision c, salario s WHERE c.com_codigo = ? ";
+        String query = "SELECT c.com_horasExtraAntes, c.com_horasExtraDespues, c.com_valorComision, c.com_codigo, s.com_codigo FROM comision c, salario s WHERE s.slr_codigo = ? AND s.com_codigo = c.com_codigo";
         stmt = con.prepareStatement(query);
 
         stmt.setString(1, codigo);
@@ -46,9 +46,16 @@ public class Comision {
             int horasExtraDespues = result.getInt("com_horasExtraDespues");
             float valorComision = result.getFloat("com_valorComision");
            
-
-            comisionTotal = (float) (((horasExtraAntes * 1.5) * 500 / 160) + ((horasExtraDespues * 2) * 500 / 160));
+            String codigo2 = codigo.substring(4);
+            comisionTotal = (float) ((((horasExtraAntes * 1.5) * Empleado.getEmpleado(codigo2).getSalarioNeto() / 160) + ((horasExtraDespues * 2) * Empleado.getEmpleado(codigo2).getSalarioNeto() / 160))+valorComision);
+            actualizarComisionTotal(codigo,comisionTotal);
         }
+        
+        
+        else {
+                System.out.println("No se encontro ningun empleado ");
+            }
+        
     } catch (IOException | SQLException ex) {
         JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());
     } finally {
@@ -64,6 +71,38 @@ public class Comision {
     }
     return comisionTotal;
     }
+    public void actualizarComisionTotal(String codigo, float comisionTotal) throws SQLException {
+    Conexion conexion = new Conexion();
+    Connection con = null;
+    PreparedStatement stmt = null;
+
+    try {
+        con = conexion.conector();
+        String query = "UPDATE COMISION SET com_total = ? WHERE com_codigo = (SELECT com_codigo FROM salario WHERE slr_codigo = ?)";
+        stmt = con.prepareStatement(query);
+
+        stmt.setFloat(1, comisionTotal);
+        stmt.setString(2, codigo);
+
+        int rowsAffected = stmt.executeUpdate();
+
+        if (rowsAffected > 0) {
+            System.out.println("Comisión total actualizada correctamente.");
+        } else {
+            System.out.println("No se pudo actualizar la comisión total.");
+        }
+    } catch (IOException | SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());
+    } finally {
+        if (stmt != null) {
+            stmt.close();
+        }
+        if (con != null) {
+            con.close();
+        }
+    }
+}
+
     
     public void IngresarComision( String ciCod )
     {
