@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -129,10 +131,42 @@ public class Empleado {
             stmt.close();
             con.close();
             
+            JOptionPane.showMessageDialog(null, "Empleado ingresado correctamente");
+            
             return true;
         } catch (IOException | SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());
             return false;
         }
+    }
+    
+    static public void calcularSueldoNeto(int horas, String categoria, JTextField sueldo){
+        double sueldoAux = 0;
+        
+        switch(categoria) {
+            case "1" -> {sueldoAux = 527;}
+            case "2" -> {sueldoAux = 553;}
+            case "3" -> {sueldoAux = 585;}
+            case "4" -> {sueldoAux = 622;}
+            case "5" -> {sueldoAux = 675;}
+            case "6" -> {sueldoAux = 733;}
+            case "7" -> {sueldoAux = 817;}
+            case "8" -> {sueldoAux = 901;}
+            case "9" -> {sueldoAux = 986;}
+            case "10" -> {sueldoAux = 1086;}
+            case "11" -> {sueldoAux = 1212;}
+            case "12" -> {sueldoAux = 1412;}
+            case "13" -> {sueldoAux = 1676;}
+            case "14" -> {sueldoAux = 1760;}
+            case "15" -> {sueldoAux = 2034;}
+        }
+        
+        double sueldoxHora = sueldoAux / 160;
+        
+        sueldoAux = sueldoxHora * horas * 20;
+        
+        DecimalFormat df = new DecimalFormat("####.##");
+        df.format(sueldoAux);
+        sueldo.setText(df.format(sueldoAux));
     }
 }
