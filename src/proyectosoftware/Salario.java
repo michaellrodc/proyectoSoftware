@@ -34,37 +34,37 @@ public class Salario {
         
         
     }
-    public void ingresarCodigos(String CI,String codDescuento,String codComisiones)
+    public void ingresarCodigos(String CI)
     {
         Conexion conexion = new Conexion();
         Connection con = null;
         Statement stmt = null;
         ResultSet rs;
+        String codSalario="SLR-"+CI;
+        String codDescuento="DESC-"+CI;
+        String codComision="COM-"+CI;
         try {
-            // TODO add your handling code here:
-
             con = conexion.conector();
-            String query =("SELECT slr_codigo FROM Empleado WHERE emp_cedula= '"+CI.trim()+"'");
+            String query =("SELECT * from Salario WHERE slr_codigo='"+codSalario+"' AND desc_codigo='"+codDescuento+"' AND com_codigo ='"+codComision+"';");
            
             stmt=con.createStatement();
             rs=stmt.executeQuery(query);
-            if(rs.next())
+            if(!rs.next())
             {
-                String ab=rs.getString("slr_codigo");
                 PreparedStatement stmtP = null;
                  query =("INSERT INTO Salario (slr_codigo, desc_codigo,com_codigo) VALUES (?, ?, ?)");
             
                 stmtP = con.prepareStatement(query);
-                stmtP.setString(1, ab);
+                stmtP.setString(1, codSalario);
                 stmtP.setString(2, codDescuento);
-                stmtP.setString(3, codComisiones);       
+                stmtP.setString(3, codComision);       
                
                  stmtP.executeUpdate();
                  
-                 JOptionPane.showMessageDialog(null, "Usuario Ingresado Correctamente" );
-     
-
             }
+            stmt.close();
+            con.close();
+           
 
            
         } catch (IOException | SQLException ex) {
