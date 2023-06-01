@@ -1,4 +1,3 @@
-
 package proyectosoftware;
 
 import java.io.IOException;
@@ -33,7 +32,7 @@ public class Descuento {
 
     try {
         con = conexion.conector();
-        String query = "SELECT d.desc_aporteIESS, d.desc_aporteSRI FROM descuento d, salario s WHERE d.desc_codigo = ?";
+        String query = "SELECT d.desc_aporteIESS, d.desc_aporteSRI FROM descuento d, salario s WHERE s.slr_codigo = ? AND s.desc_codigo = d.desc_codigo";
         stmt = con.prepareStatement(query);
 
         stmt.setString(1, codigo);
@@ -43,10 +42,16 @@ public class Descuento {
         if (result.next()) {
             float aportacionesIESS = result.getFloat("desc_aporteIESS");
             float aportacionesSRI = result.getFloat("desc_aporteSRI");
-            System.out.println(aportacionesIESS);
-            System.out.println(aportacionesSRI);
 
-            descuentoTotal = (float) ((500 * aportacionesIESS) + (500 * aportacionesSRI));
+            String codigo2 = codigo.substring(4);
+
+            descuentoTotal = (float) ((Empleado.getEmpleado(codigo2).getSalarioNeto() * aportacionesIESS) + (Empleado.getEmpleado(codigo2).getSalarioNeto() * aportacionesSRI));
+
+            // Llamar a la función para actualizar el descuento total en la tabla DESCUENTO
+            actualizarDescuentoTotal(codigo, descuentoTotal);
+        } else {
+            // No se encontró ningún resultado en la consulta
+            // Puedes agregar el código correspondiente o un mensaje de error si es necesario
         }
     } catch (IOException | SQLException ex) {
         JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());
@@ -62,7 +67,40 @@ public class Descuento {
         }
     }
     return descuentoTotal;
+}
+
+public void actualizarDescuentoTotal(String codigo, float descuentoTotal) throws SQLException {
+    Conexion conexion = new Conexion();
+    Connection con = null;
+    PreparedStatement stmt = null;
+
+    try {
+        con = conexion.conector();
+        String query = "UPDATE DESCUENTO SET desc_total = ? WHERE desc_codigo = (SELECT desc_codigo FROM salario WHERE slr_codigo = ?)";
+        stmt = con.prepareStatement(query);
+
+        stmt.setFloat(1, descuentoTotal);
+        stmt.setString(2, codigo);
+
+        int rowsAffected = stmt.executeUpdate();
+
+        if (rowsAffected > 0) {
+            System.out.println("Descuento total actualizado correctamente.");
+        } else {
+            System.out.println("No se pudo actualizar el descuento total.");
+        }
+    } catch (IOException | SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());
+    } finally {
+        if (stmt != null) {
+            stmt.close();
+        }
+        if (con != null) {
+            con.close();
+        }
     }
+}
+
     public void registrarDescuento(String ci)
     {
         Conexion conexion = new Conexion();

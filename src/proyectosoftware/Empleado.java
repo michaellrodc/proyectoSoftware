@@ -69,7 +69,7 @@ public class Empleado {
         this.contrato = contrato;
         this.horasEquivalentes = horasEquivalentes;
         this.salarioNeto = salarioNeto;
-        this.codigoSalario = "SLR_"+cedula;
+        this.codigoSalario = "SLR-"+cedula;
 
     }
     
