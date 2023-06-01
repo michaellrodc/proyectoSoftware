@@ -111,10 +111,12 @@ public class pantallaInicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        pantallaRegistroUsuarios b = new pantallaRegistroUsuarios();
-        b.setVisible(true);
+        // TODO add your handling code here:       
         
+        this.setVisible(false);
+        pantallaRegistroUsuarios a =new pantallaRegistroUsuarios();
+        a.setVisible(true);
+        a.setLocationRelativeTo(null);
         this.dispose();
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -159,6 +161,7 @@ public class pantallaInicioSesion extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
                 new pantallaInicioSesion().setVisible(true);
             }
         });

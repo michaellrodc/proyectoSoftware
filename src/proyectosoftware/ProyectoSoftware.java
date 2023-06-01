@@ -19,8 +19,9 @@ public class ProyectoSoftware {
      */
     public static void main(String[] args) throws SQLException {
         // TODO code application logic here
-        pantallaInicioSesion a= new pantallaInicioSesion();
+        pantallaInicioSesion a = new pantallaInicioSesion();
         a.setVisible(true);
+        a.setLocationRelativeTo(null);
         
         Salario b= new Salario();
         b.calcularSalario("COM-000-001","DESC-001-001");

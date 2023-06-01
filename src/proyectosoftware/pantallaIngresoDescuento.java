@@ -31,8 +31,6 @@ public class pantallaIngresoDescuento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         panelDescuentos = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -48,8 +46,13 @@ public class pantallaIngresoDescuento extends javax.swing.JFrame {
         sliderMinimo = new javax.swing.JSlider();
         sliderMinimo1 = new javax.swing.JSlider();
         labelValorSliderm1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -59,36 +62,29 @@ public class pantallaIngresoDescuento extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Descuentos", "Comisiones" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 16, -1, -1));
-
-        jButton1.setText("Ingresar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 80, 30));
-
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        panelDescuentos.setBackground(new java.awt.Color(255, 255, 255));
         panelDescuentos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Apotaciones al IEES");
         panelDescuentos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
-        panelDescuentos.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 80, -1));
-        panelDescuentos.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 90, -1));
+
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        panelDescuentos.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 140, 20));
+        panelDescuentos.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 140, -1));
 
         jLabel2.setText("Aportaciones SRI");
         panelDescuentos.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
 
         jPanel2.add(panelDescuentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 410, 140));
 
+        panelComisiones.setBackground(new java.awt.Color(255, 255, 255));
         panelComisiones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setText("Horas Extras antes de las 24 horas");
@@ -133,7 +129,18 @@ public class pantallaIngresoDescuento extends javax.swing.JFrame {
 
         jPanel2.add(panelComisiones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 140));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 430, 170));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 430, 170));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Descuentos", "Comisiones" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, 30));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1750235069", "1004457444" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
@@ -141,15 +148,55 @@ public class pantallaIngresoDescuento extends javax.swing.JFrame {
                 jComboBox2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 120, -1));
+        jPanel3.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 120, 30));
 
+        jPanel1.setBackground(new java.awt.Color(188, 246, 188));
+        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 30));
+
+        jPanel4.setBackground(new java.awt.Color(188, 246, 188));
+
+        jButton2.setBackground(new java.awt.Color(116, 209, 86));
         jButton2.setText("Regresar");
+        jButton2.setOpaque(true);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
+
+        jButton1.setBackground(new java.awt.Color(150, 233, 150));
+        jButton1.setText("Ingresar");
+        jButton1.setOpaque(true);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addGap(116, 116, 116)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(230, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 520, 50));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -242,6 +289,10 @@ public class pantallaIngresoDescuento extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -287,7 +338,10 @@ public class pantallaIngresoDescuento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField5;

@@ -33,7 +33,7 @@ public class Descuento {
 
     try {
         con = conexion.conector();
-        String query = "SELECT d.desc_aporteIESS, d.desc_aporteSRI FROM descuento d, salario s WHERE d.desc_codigo = ?";
+        String query = "SELECT d.desc_aporteIESS, d.desc_aporteSRI FROM descuento d, salario s WHERE s.slr_codigo = ? AND s.desc_codigo = d.desc_codigo";
         stmt = con.prepareStatement(query);
 
         stmt.setString(1, codigo);
@@ -46,7 +46,9 @@ public class Descuento {
             System.out.println(aportacionesIESS);
             System.out.println(aportacionesSRI);
 
-            descuentoTotal = (float) ((500 * aportacionesIESS) + (500 * aportacionesSRI));
+            codigo = codigo.substring(5);
+
+            descuentoTotal = (float) ((Empleado.getEmpleado(codigo).getSalarioNeto() * aportacionesIESS) + (Empleado.getEmpleado(codigo).getSalarioNeto() * aportacionesSRI));
         }
     } catch (IOException | SQLException ex) {
         JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());

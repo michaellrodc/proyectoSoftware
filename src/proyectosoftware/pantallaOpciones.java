@@ -26,47 +26,92 @@ public class pantallaOpciones extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         btnIngresoEmpleados = new javax.swing.JButton();
         btnConsultaSalario = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("¿Qué opción desea Realizar ?");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnIngresoEmpleados.setBackground(new java.awt.Color(97, 178, 224));
+        btnIngresoEmpleados.setFont(new java.awt.Font("Leelawadee UI", 1, 12)); // NOI18N
+        btnIngresoEmpleados.setForeground(new java.awt.Color(255, 255, 255));
         btnIngresoEmpleados.setText("Ingresar Empleado");
+        btnIngresoEmpleados.setOpaque(true);
         btnIngresoEmpleados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIngresoEmpleadosActionPerformed(evt);
             }
         });
-        getContentPane().add(btnIngresoEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 150, 80));
+        jPanel1.add(btnIngresoEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 250, 40));
 
+        btnConsultaSalario.setBackground(new java.awt.Color(97, 178, 224));
+        btnConsultaSalario.setFont(new java.awt.Font("Leelawadee UI", 1, 12)); // NOI18N
+        btnConsultaSalario.setForeground(new java.awt.Color(255, 255, 255));
         btnConsultaSalario.setText("Consultar Salario");
+        btnConsultaSalario.setOpaque(true);
         btnConsultaSalario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsultaSalarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnConsultaSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 170, 80));
+        jPanel1.add(btnConsultaSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 250, 40));
 
+        jButton1.setBackground(new java.awt.Color(97, 178, 224));
+        jButton1.setFont(new java.awt.Font("Leelawadee UI", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Ingresar Descuento Y Comisión");
+        jButton1.setOpaque(true);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 200, 70));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 250, 40));
+
+        jPanel2.setBackground(new java.awt.Color(150, 214, 238));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Leelawadee UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("¿Qué opción desea realizar ?");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 60));
+
+        jPanel3.setBackground(new java.awt.Color(150, 214, 238));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton2.setBackground(new java.awt.Color(97, 178, 224));
+        jButton2.setFont(new java.awt.Font("Leelawadee UI", 1, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Regresar");
+        jButton2.setOpaque(true);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 460, 50));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 320));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConsultaSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaSalarioActionPerformed
         // TODO add your handling code here:
-        
+        this.setVisible(false);
         pantallaConsultar a = new pantallaConsultar();
         a.setVisible(true);
         a.setLocationRelativeTo(null);
@@ -75,6 +120,7 @@ public class pantallaOpciones extends javax.swing.JFrame {
 
     private void btnIngresoEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresoEmpleadosActionPerformed
         // TODO add your handling code here:
+       this.setVisible(false);
         IngresoEmpleado a =new IngresoEmpleado();
         a.setVisible(true);
         a.setLocationRelativeTo(null);
@@ -83,10 +129,23 @@ public class pantallaOpciones extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+        this.setVisible(false);
         pantallaIngresoDescuento a = new pantallaIngresoDescuento();
         a.setVisible(true);
+        a.setLocationRelativeTo(null);
+        this.dispose();
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        pantallaInicioSesion a = new pantallaInicioSesion();
+        a.setVisible(true);
+        a.setLocationRelativeTo(null);
+        this.dispose();
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,6 +186,10 @@ public class pantallaOpciones extends javax.swing.JFrame {
     private javax.swing.JButton btnConsultaSalario;
     private javax.swing.JButton btnIngresoEmpleados;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }
