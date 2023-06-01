@@ -24,8 +24,12 @@ public class ProyectoSoftware {
         a.setLocationRelativeTo(null);
         
         Salario b= new Salario();
-        b.calcularSalario("COM-000-001","DESC-001-001");
-  
+        //b.calcularSalario("COM-000-001","DESC-001-001");
+        Descuento h = new Descuento(0.0,0.0);
+        Comision j = new Comision();
+        System.out.println(h.calcularDescuento("SLR-1716270849"));
+        System.out.println(j.calcularComision("SLR-1716270849"));
+        
     }
     
 }

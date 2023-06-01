@@ -32,6 +32,7 @@ public class Descuento {
     float descuentoTotal = 0;
 
     try {
+        
         con = conexion.conector();
         String query = "SELECT d.desc_aporteIESS, d.desc_aporteSRI FROM descuento d, salario s WHERE s.slr_codigo = ? AND s.desc_codigo = d.desc_codigo";
         stmt = con.prepareStatement(query);
@@ -41,15 +42,20 @@ public class Descuento {
         result = stmt.executeQuery();
 
         if (result.next()) {
+            
             float aportacionesIESS = result.getFloat("desc_aporteIESS");
             float aportacionesSRI = result.getFloat("desc_aporteSRI");
             System.out.println(aportacionesIESS);
             System.out.println(aportacionesSRI);
 
-            codigo = codigo.substring(5);
+            codigo = codigo.substring(4);
 
             descuentoTotal = (float) ((Empleado.getEmpleado(codigo).getSalarioNeto() * aportacionesIESS) + (Empleado.getEmpleado(codigo).getSalarioNeto() * aportacionesSRI));
         }
+         else {
+                //System.out.println("No se encontro ningun empleado ");
+            }
+        
     } catch (IOException | SQLException ex) {
         JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());
     } finally {
