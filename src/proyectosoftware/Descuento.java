@@ -63,35 +63,45 @@ public class Descuento {
     }
     return descuentoTotal;
     }
-    public void registrarDescuento()
+    public void registrarDescuento(String ci)
     {
         Conexion conexion = new Conexion();
         Connection con = null;
         PreparedStatement stmt = null;
         String codigoSecuencial;
-        
-        generrarCodigos a= new generrarCodigos();
-        codigoSecuencial=a.codigoDescuento();
-        codigoDescuento=codigoSecuencial;
+        ci="DESC-"+ci;
+        validarCodigos ab =new validarCodigos();
+        codigoDescuento=ci;
 
         try {
-            // TODO add your handling code here:
-
             con = conexion.conector();
-            String query =("INSERT INTO Descuento (desc_codigo, desc_aporteIESS,desc_aporteSRI) VALUES (?, ?, ?)");
+            if (!ab.validarDescuento(ci))
+            {
+                String query =("INSERT INTO Descuento (desc_codigo, desc_aporteIESS,desc_aporteSRI) VALUES (?, ?, ?)");
             
             stmt = con.prepareStatement(query);
-            stmt.setString(1, codigoSecuencial);
-            //System.out.println(aportacionesIESS);
-            //System.out.println(aportacionesSRI);
+            stmt.setString(1, ci);
             stmt.setFloat(2, aportacionesIESS);
             stmt.setFloat(3, aportacionesSRI);
-            
 
-               
             stmt.executeUpdate();
             
-            JOptionPane.showMessageDialog(null, "descuento Ingresado Correctamente" );
+            JOptionPane.showMessageDialog(null, "Descuento Ingresado Correctamente" );
+            }
+            else
+            {
+                String query =("UPDATE Descuento SET desc_aporteIESS = ?, desc_aporteSRI = ?  WHERE desc_codigo='"+ci+"';");
+            
+                stmt = con.prepareStatement(query);
+                stmt.setFloat(1, aportacionesIESS);
+                stmt.setFloat(2, aportacionesSRI);
+
+                stmt.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Descuento Actualizado Correctamente" );
+            }
+
+            
+            
         } catch (IOException | SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());
         }
