@@ -140,7 +140,7 @@ public class Empleado {
         }
     }
     
-    static public void calcularSueldoNeto(int horas, String categoria, JTextField sueldo){
+    static public void calcularSueldoNet(int horas, String categoria, JTextField sueldo){
         double sueldoAux = 0;
         
         switch(categoria) {
