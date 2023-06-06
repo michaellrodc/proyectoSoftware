@@ -5,51 +5,19 @@ package proyectosoftware;
  * @author mao_a
  */
 public class FormularioIngresoEmpleado {
-    private String cedulaIngresada;
-    private String nombreIngresado;
-    private String apellidoIngresado;
-    private String categoriaIngresada;
-    private String contratoIngresado;
-    private int horasEquivalentesIngresadas;
-    private double salarioNetoIngresado;
+    static private Empleado emp;
 
-    public FormularioIngresoEmpleado(String cedulaIngresada, String nombreIngresado, String apellidoIngresado, String categoriaIngresada, String contratoIngresado, int horasEquivalentesIngresadas, double salarioNetoIngresado) {
-        this.cedulaIngresada = cedulaIngresada;
-        this.nombreIngresado = nombreIngresado;
-        this.apellidoIngresado = apellidoIngresado;
-        this.categoriaIngresada = categoriaIngresada;
-        this.contratoIngresado = contratoIngresado;
-        this.horasEquivalentesIngresadas = horasEquivalentesIngresadas;
-        this.salarioNetoIngresado = salarioNetoIngresado;
+    static public void IngresarEmpleado(String cedulaIngresada, String nombreIngresado, String apellidoIngresado, boolean extranjero, String categoriaIngresada, String contratoIngresado, int horasEquivalentesIngresadas, double salarioNetoIngresado) {
+        
+        emp = new Empleado(cedulaIngresada,nombreIngresado,apellidoIngresado,extranjero,
+                    categoriaIngresada,contratoIngresado,horasEquivalentesIngresadas,
+                   salarioNetoIngresado
+        );
+        
+        emp.registroEmpleado();
     }
 
-    public String getCedulaIngresada() {
-        return cedulaIngresada;
-    }
-
-    public String getNombreIngresado() {
-        return nombreIngresado;
-    }
-
-    public String getApellidoIngresado() {
-        return apellidoIngresado;
-    }
-
-    public String getCategoriaIngresada() {
-        return categoriaIngresada;
-    }
-
-    public String getContratoIngresado() {
-        return contratoIngresado;
-    }
-
-    public int getHorasEquivalentesIngresadas() {
-        return horasEquivalentesIngresadas;
-    }
-
-    public double getSalarioNetoIngresado() {
-        return salarioNetoIngresado;
-    }
+   
     
     
 }

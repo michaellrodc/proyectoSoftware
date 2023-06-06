@@ -26,6 +26,9 @@ public class Empleado {
     private int horasEquivalentes;
     private double salarioNeto;
     private String codigoSalario;
+    private boolean extranjero;
+    private String codigoSolicitud;
+    private String codigoCuenta;
     
     
     public String getCedula() {
@@ -59,9 +62,22 @@ public class Empleado {
     public String getCodigoSalario() {
         return codigoSalario;
     }
+
+    public boolean getExtranjero() {
+        return extranjero;
+    }
+
+    public String getCodigoSolicitud() {
+        return codigoSolicitud;
+    }
+
+    public String getCodigoCuenta() {
+        return codigoCuenta;
+    }
+    
     
 
-    public Empleado(String cedula, String nombre, String apellido, String categoria, String contrato, int horasEquivalentes, double salarioNeto) {
+    public Empleado(String cedula, String nombre, String apellido, boolean extranjero, String categoria, String contrato, int horasEquivalentes, double salarioNeto) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -70,7 +86,9 @@ public class Empleado {
         this.horasEquivalentes = horasEquivalentes;
         this.salarioNeto = salarioNeto;
         this.codigoSalario = "SLR-"+cedula;
-
+        this.extranjero = extranjero;
+        this.codigoCuenta = "CTN-"+cedula;
+        this.codigoSolicitud = "SLC-"+cedula;
     }
     
     
@@ -90,6 +108,7 @@ public class Empleado {
                     result.getString("emp_cedula"),
                     result.getString("emp_nombre"),
                     result.getString("emp_apellido"),
+                    result.getBoolean("emp_extranjero"),
                     result.getString("emp_categoria"),
                     result.getString("emp_contrato"),
                     result.getInt("emp_horasEquivalentes"),
@@ -115,17 +134,20 @@ public class Empleado {
     public boolean registroEmpleado(){
         try {
             con = conexion.conector();
-            String cadena = "INSERT INTO Empleado (emp_cedula,emp_nombre,emp_apellido,emp_categoria,emp_contrato,emp_horasEquivalentes,emp_salarioNeto,slr_codigo) VALUES (?,?,?,?,?,?,?,?)";
+            String cadena = "INSERT INTO Empleado (emp_cedula,emp_nombre,emp_apellido,emp_extranjero,emp_categoria,emp_contrato,emp_horasEquivalentes,emp_salarioNeto,slr_codigo,slc_codigo,cnt_codigo) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
             stmt = con.prepareStatement(cadena);
 
             stmt.setString(1, this.cedula);
             stmt.setString(2, this.nombre);
             stmt.setString(3, this.apellido);
-            stmt.setString(4, this.categoria);
-            stmt.setString(5, this.contrato);
-            stmt.setInt(6, this.horasEquivalentes);
-            stmt.setDouble(7, this.salarioNeto);
-            stmt.setString(8, this.codigoSalario);
+            stmt.setBoolean(4, this.extranjero);
+            stmt.setString(5, this.categoria);
+            stmt.setString(6, this.contrato);
+            stmt.setInt(7, this.horasEquivalentes);
+            stmt.setDouble(8, this.salarioNeto);
+            stmt.setString(9, this.codigoSalario);
+            stmt.setString(9, this.codigoSolicitud);
+            stmt.setString(9, this.codigoCuenta);
 
             stmt.executeUpdate();
             stmt.close();
