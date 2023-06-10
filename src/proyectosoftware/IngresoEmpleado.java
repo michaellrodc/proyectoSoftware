@@ -58,7 +58,6 @@ public class IngresoEmpleado extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(176, 242, 194));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -101,8 +100,8 @@ public class IngresoEmpleado extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 177, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jLabel7.setText("Extranjero");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, -1, 30));
+        jLabel7.setText(" Extranjero");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 80, 20));
 
         jLabel8.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel8.setText("Horas");
@@ -191,9 +190,18 @@ public class IngresoEmpleado extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel10.setText("Salario Neto");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 83, -1, -1));
-        jPanel1.add(cbExtranjero, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, -1, -1));
+        jPanel1.add(cbExtranjero, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 508, -1));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -213,7 +221,7 @@ public class IngresoEmpleado extends javax.swing.JFrame {
                 txtCedula.getText(),
                 txtNombre.getText(),
                 txtApellido.getText(),
-                false,
+                cbExtranjero.isSelected(),
                 cbCategoria.getSelectedItem().toString(),
                 cbContrato.getSelectedItem().toString(),
                 Integer.parseInt(txtHoras.getText()),

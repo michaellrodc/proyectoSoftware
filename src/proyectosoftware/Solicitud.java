@@ -37,22 +37,23 @@ public class Solicitud {
     }
     
     public void actualizarEstado(String estado){
+        this.estadoSolicitud = false;
         this.estadoProceso = estado;
         
         try {
             con = conexion.conector();
-            String cadena = "INSERT INTO Solicitud (slc_codigo,slc_estadoProceso,slc_estadoSolicitud) VALUES (?,?,?)";
+            String cadena = "UPDATE Solicitud SET slc_estadoProceso = ?, slc_estadoSolicitud = ? WHERE slc_codigo = ?;";
             stmt = con.prepareStatement(cadena);
 
-            stmt.setString(1, this.codigoSolicitud);
-            stmt.setString(2, this.estadoProceso);
-            stmt.setBoolean(3, this.estadoSolicitud);
+            stmt.setString(1, this.estadoProceso);
+            stmt.setBoolean(2, this.estadoSolicitud);
+            stmt.setString(3, this.codigoSolicitud);
 
             stmt.executeUpdate();
             stmt.close();
             con.close();
             
-            JOptionPane.showMessageDialog(null, "Solicitud ingresada correctamente");
+            JOptionPane.showMessageDialog(null, "Estado actualizado correctamente");
 
         } catch (IOException | SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());
@@ -82,38 +83,23 @@ public class Solicitud {
         }
     }
     //patron estado
-    private void eliminarRegistroAnterior(){
-        /*try {
+    public void eliminarRegistroAnterior(){
+        try {
             con = conexion.conector();
             
-            String cadena = "DELETE * FROM Empleado WHERE emp_cedula = ?";
+            String cadena = "DELETE FROM Solicitud WHERE slc_codigo = ?";
             stmt = con.prepareStatement(cadena);
-            stmt.setString(1, cedula);
-            result = stmt.executeQuery();
             
-            if (result.next()) {
-                empleado = new Empleado(
-                    result.getString("emp_cedula"),
-                    result.getString("emp_nombre"),
-                    result.getString("emp_apellido"),
-                    result.getBoolean("emp_extranjero"),
-                    result.getString("emp_categoria"),
-                    result.getString("emp_contrato"),
-                    result.getInt("emp_horasEquivalentes"),
-                    result.getDouble("emp_salarioNeto")
-                );
-            } else {
-                System.out.println("No se encontro ningun empleado con la cedula "+ cedula);
-            }
+            stmt.setString(1, this.codigoSolicitud);
             
-            
-            
+            stmt.executeUpdate();
             stmt.close();
             con.close();
             
+            JOptionPane.showMessageDialog(null, "Se elimino la anterior solicitud con codigo " + this.codigoSolicitud);
         } catch (IOException | SQLException ex) {
-            System.out.println("Error en " + ex.getMessage());
-        }*/
+            JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());
+        }
     }
     
 }
