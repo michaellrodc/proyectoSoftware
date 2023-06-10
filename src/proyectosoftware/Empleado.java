@@ -146,8 +146,8 @@ public class Empleado {
             stmt.setInt(7, this.horasEquivalentes);
             stmt.setDouble(8, this.salarioNeto);
             stmt.setString(9, this.codigoSalario);
-            stmt.setString(9, this.codigoSolicitud);
-            stmt.setString(9, this.codigoCuenta);
+            stmt.setString(10, this.codigoSolicitud);
+            stmt.setString(11, this.codigoCuenta);
 
             stmt.executeUpdate();
             stmt.close();
