@@ -105,9 +105,6 @@ public class Solicitud {
             JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());
         }
     }
-    public int validarSolicitud()
-    {
-        int resultado =0;
         try {
             con = conexion.conector();
             String cadena = "SELECT * FROM Solicitud WHERE slc_codigo = ?";
