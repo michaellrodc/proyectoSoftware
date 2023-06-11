@@ -124,7 +124,7 @@ public class Solicitud {
     }
     
     static public Solicitud getSolicitud(String cedula) {
-        String codigoSalario = "SLC-"+cedula; 
+        String codigoSolicitud = "SLC-"+cedula; 
         Solicitud solicitud = null;
         
         try {
@@ -132,7 +132,7 @@ public class Solicitud {
             
             String cadena = "SELECT * FROM Salario WHERE slc_codigo = ?";
             stmt = con.prepareStatement(cadena);
-            stmt.setString(1, codigoSalario);
+            stmt.setString(1, codigoSolicitud);
             result = stmt.executeQuery();
             
             if (result.next()) {
