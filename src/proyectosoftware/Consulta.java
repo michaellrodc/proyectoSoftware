@@ -95,7 +95,7 @@ public class Consulta {
             result = stmt.executeQuery();
 
             // Limpiar la tabla antes de agregar nuevos datos
-            x.setRowCount(0);
+            model.setRowCount(0);
 
             while (result.next()) {
                 Object[] fila = new Object[9];
