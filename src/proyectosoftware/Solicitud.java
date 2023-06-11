@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author micha
+ * @author yo
  */
 public class Solicitud {
     
@@ -24,7 +24,28 @@ public class Solicitud {
     private String estadoProceso; //Activo Completado Rechazado
     private Empleado emp;
 
-    public Solicitud( String cedula) {
+    
+    
+    public String getCodigoSolicitud() {
+        return codigoSolicitud;
+    }
+
+    public boolean getEstadoSolicitud() {
+        return estadoSolicitud;
+    }
+
+    public String getEstadoProceso() {
+        return estadoProceso;
+    }
+    
+    public Solicitud(String codigoSolicitud, boolean estadoSolicitud, String estadoProceso, String cedula) {
+        this.codigoSolicitud = codigoSolicitud;
+        this.estadoSolicitud = estadoSolicitud;
+        this.estadoProceso = estadoProceso;
+        this.emp = Empleado.getEmpleado(cedula);
+    }
+    
+    public Solicitud(String cedula) {
         
         this.codigoSolicitud = "SLC-"+cedula;  
         this.estadoSolicitud = true;
@@ -100,6 +121,41 @@ public class Solicitud {
         } catch (IOException | SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());
         }
+    }
+    
+    static public Solicitud getSolicitud(String cedula) {
+        String codigoSalario = "SLC-"+cedula; 
+        Solicitud solicitud = null;
+        
+        try {
+            con = conexion.conector();
+            
+            String cadena = "SELECT * FROM Salario WHERE slc_codigo = ?";
+            stmt = con.prepareStatement(cadena);
+            stmt.setString(1, codigoSalario);
+            result = stmt.executeQuery();
+            
+            if (result.next()) {
+                solicitud = new Solicitud(
+                    result.getString("slc_codigo"),
+                    result.getBoolean("slc_estadoSolicitud"),
+                    result.getString("slc_estadoProceso"),
+                    cedula
+                );
+            } else {
+                System.out.println("No se encontro ninguna solicitud con la cedula "+ cedula);
+            }
+            
+            
+            
+            stmt.close();
+            con.close();
+            
+        } catch (IOException | SQLException ex) {
+            System.out.println("Error en " + ex.getMessage());
+        }
+        
+        return solicitud;
     }
     
 }
