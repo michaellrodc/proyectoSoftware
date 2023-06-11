@@ -25,7 +25,6 @@ public class Solicitud {
     private Empleado emp;
 
     public Solicitud( String cedula) {
-        
         this.codigoSolicitud = "SLC-"+cedula;  
         this.estadoSolicitud = true;
         this.estadoProceso = "Activo";
@@ -33,9 +32,14 @@ public class Solicitud {
     }
     
     public boolean validarExtranjero(String cedula){
+        
         return emp.getExtranjero();
+        
     }
-    
+    public String getestadoProceso()
+    {
+        return this.estadoProceso;
+    }
     public void actualizarEstado(String estado){
         this.estadoSolicitud = false;
         this.estadoProceso = estado;
@@ -101,5 +105,37 @@ public class Solicitud {
             JOptionPane.showMessageDialog(null, "Error en " + ex.getMessage());
         }
     }
-    
+    public int validarSolicitud()
+    {
+        int resultado =0;
+        try {
+            con = conexion.conector();
+            String cadena = "SELECT * FROM Solicitud WHERE slc_codigo = ?";
+            stmt = con.prepareStatement(cadena);
+            stmt.setString(1, codigoSolicitud);
+            result = stmt.executeQuery();
+            
+            if (result.next()) {
+                resultado=1;
+                stmt = null;
+                result=null;
+              cadena = "SELECT * FROM Solicitud WHERE slc_codigo = ? AND slc_estadoProceso = 'Rechazado' OR slc_estadoProceso = 'Completado' ";
+              stmt = con.prepareStatement(cadena);
+               stmt.setString(1, codigoSolicitud);
+                result = stmt.executeQuery();
+                if(result.next()){
+                 resultado=2;
+                }
+            } 
+                        
+            stmt.close();
+            con.close();
+            
+        } catch (IOException | SQLException ex) {
+            System.out.println("Error en " + ex.getMessage());
+        }
+        
+        return resultado;
+        
+    }
 }
